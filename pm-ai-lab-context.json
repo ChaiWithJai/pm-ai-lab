@@ -1,0 +1,574 @@
+{
+  "meta": {
+    "version": "1.0.0",
+    "lastUpdated": "2025-12-19",
+    "generatedBy": "Claude Opus 4.5 + Human review",
+    "purpose": "Codebase and WIP context for PM AI Lab - complements business strategy in pmm-marketing-funnel-context.json",
+    "relatedContextFiles": [
+      {
+        "file": "../pmm-marketing-funnel-context.json",
+        "purpose": "Business strategy, funnel, pricing, courses, PMM positioning",
+        "version": "0.5.0"
+      },
+      {
+        "file": "../leanstack-bmd-course-context.json",
+        "purpose": "Leanstack Business Model Design course analysis"
+      }
+    ]
+  },
+
+  "project": {
+    "name": "PM AI Lab",
+    "repository": "chai-with-jai/pm-ai-lab",
+    "description": "Educational platform showing Product Managers and Designers where AI fails and how to fix it",
+    "purpose": "Mid-funnel resource for warm leads (post-Lightning Lesson attendees) to explore AI failure patterns and take action",
+    "targetPersona": {
+      "description": "36-year-old woman PM in Chicago suburbs",
+      "characteristics": [
+        "Wants distillation and simplicity",
+        "Time-constrained",
+        "Career-driven but overwhelmed by AI hype",
+        "Attended Lightning Lesson, ready for next step"
+      ]
+    },
+    "dataSource": {
+      "totalTranscripts": 1250,
+      "totalQuestions": 14208,
+      "totalChallenges": 3076,
+      "sources": [
+        { "name": "Anthropic Interviewer", "records": 1250 },
+        { "name": "Product Catalyst", "records": 1454 }
+      ]
+    },
+    "liveUrl": "https://pm-ai-lab.vercel.app (planned)"
+  },
+
+  "wip": {
+    "currentBranch": "feat/build-your-own-ai-agent-flagship",
+    "recentCommits": [
+      {
+        "hash": "a464b71",
+        "message": "feat: Build Your Own AI Agent - flagship course + PMM v0.5.0"
+      },
+      { "hash": "6eddfd7", "message": "feat: new title" },
+      { "hash": "e2b5837", "message": "fix: update vite config" },
+      { "hash": "abb3b52", "message": "fix: update vite config" },
+      { "hash": "c231ea6", "message": "fix: update vite config" }
+    ],
+    "completedFeatures": [
+      {
+        "name": "Crown Jewel Hero",
+        "date": "2025-12-19",
+        "description": "Redesigned homepage hero with single primary CTA + secondary links based on 5-second test analysis",
+        "files": ["src/app/page.tsx"]
+      },
+      {
+        "name": "Challenge Carousel",
+        "date": "2025-12-19",
+        "description": "Netflix-style horizontal scroll carousel for /challenges page showing top failure rates",
+        "files": ["src/components/ChallengeCarousel.tsx", "src/app/challenges/page.tsx"]
+      },
+      {
+        "name": "D&D/Tarot Schema Extension",
+        "date": "2025-12-19",
+        "description": "Extended Challenge interface with archetype, hiddenEval, narrativeArc, connectsTo, mentorVoice fields",
+        "files": ["src/data/challenges.ts"]
+      }
+    ],
+    "nextPriorities": [
+      "Populate remaining 9 challenges with archetype data",
+      "Build full Tarot card UI for challenge visualization",
+      "Add challenge graph visualization using connectsTo field",
+      "Implement mentor voice routing (swyx, rahul-alex, ash-maurya paths)"
+    ],
+    "sessionHistory": [
+      {
+        "date": "2025-12-19",
+        "summary": "5-second test analysis led to hero redesign + carousel + D&D/Tarot schema. Fixed Turbopack cache issues.",
+        "keyDecisions": [
+          "Hero: Primary CTA + Secondary links (not multiple buttons)",
+          "Carousel: Horizontal scroll Netflix-style (not card grid)",
+          "Schema: Full D&D/Tarot fields now (not incremental)"
+        ]
+      }
+    ]
+  },
+
+  "stack": {
+    "framework": {
+      "name": "Next.js",
+      "version": "16.1.0",
+      "features": ["App Router", "Server Components", "Static Generation"]
+    },
+    "runtime": {
+      "name": "React",
+      "version": "19.2.3"
+    },
+    "language": {
+      "name": "TypeScript",
+      "version": "^5",
+      "config": {
+        "strict": true,
+        "moduleResolution": "bundler",
+        "pathAlias": "@/*"
+      }
+    },
+    "styling": {
+      "name": "Tailwind CSS",
+      "version": "^4",
+      "processor": "@tailwindcss/postcss",
+      "customProperties": {
+        "primaryColor": "teal-600",
+        "gradients": ["header-gradient", "gradient-text"]
+      }
+    },
+    "ui": {
+      "components": [
+        { "name": "@radix-ui/react-dialog", "version": "^1.1.15", "purpose": "Accessible modals" },
+        { "name": "@radix-ui/react-progress", "version": "^1.1.8", "purpose": "Progress bars" },
+        { "name": "@radix-ui/react-tabs", "version": "^1.1.13", "purpose": "Tab navigation" },
+        { "name": "@radix-ui/react-tooltip", "version": "^1.2.8", "purpose": "Tooltips" }
+      ],
+      "icons": { "name": "lucide-react", "version": "^0.562.0" },
+      "animation": { "name": "framer-motion", "version": "^12.23.26" },
+      "charts": { "name": "recharts", "version": "^3.6.0" }
+    },
+    "buildTools": {
+      "linting": "eslint ^9 + eslint-config-next",
+      "typeChecking": "typescript ^5",
+      "bundling": "Next.js native (Webpack 5+)"
+    }
+  },
+
+  "architecture": {
+    "pattern": "Static Next.js App Router with TypeScript data models",
+    "dataFlow": {
+      "description": "All content is static TypeScript - no database, no API routes, no CMS",
+      "contentSource": "/src/data/*.ts files",
+      "rendering": "Server components by default, 'use client' for interactivity",
+      "generation": "Static Site Generation via generateStaticParams()"
+    },
+    "directories": {
+      "src/app": {
+        "purpose": "Next.js pages and layouts",
+        "contents": [
+          "layout.tsx - Root layout with metadata, fonts, global CSS",
+          "page.tsx - Homepage with hero, time horizon nav, case study preview",
+          "story/page.tsx - Jai's transformation narrative",
+          "challenges/page.tsx - AI failure patterns directory with carousel",
+          "case-study/[slug]/page.tsx - Dynamic case study pages",
+          "do/[timeframe]/page.tsx - Time-horizon action guides"
+        ]
+      },
+      "src/components": {
+        "purpose": "Reusable React components (23 total)",
+        "organization": [
+          "Root level: shared components (Header, Footer, ChallengeCard, etc.)",
+          "shared/: generic reusable (PageHeader, CTABlock, PathCard)",
+          "action-guides/: time horizon specific (ActionCard, TimeHorizonNav)",
+          "story/: narrative components (Timeline, MentorCards, RLDiagram)",
+          "case-study/: case study specific (BuildJourney, FeatureList)"
+        ]
+      },
+      "src/data": {
+        "purpose": "TypeScript data models and content",
+        "files": [
+          "challenges.ts - 12 challenges + schemas + D&D/Tarot system",
+          "action-guides.ts - 5 time horizon guides with actions",
+          "case-studies.ts - PMM Deep Agent case study",
+          "jai-story.ts - Timeline, mentors, transformation data"
+        ]
+      }
+    },
+    "decisions": [
+      {
+        "decision": "TypeScript data over CMS/database",
+        "rationale": "Type-safe, version-controlled, fast, no external dependencies",
+        "tradeoff": "Content changes require code deploy",
+        "scalability": "Good for 100-200 items, then reconsider"
+      },
+      {
+        "decision": "Server components by default",
+        "rationale": "Better performance, smaller bundle, SEO benefits",
+        "clientComponents": "Only for interactivity (Header menu, ChallengeCard expand, etc.)"
+      },
+      {
+        "decision": "Radix UI for accessibility",
+        "rationale": "WCAG-compliant primitives without heavy library",
+        "usage": "Dialog, Tabs, Progress, Tooltip"
+      },
+      {
+        "decision": "Static content paths",
+        "rationale": "Pre-render all pages at build time for speed",
+        "implementation": "generateStaticParams() in dynamic routes"
+      }
+    ]
+  },
+
+  "schemas": {
+    "challenge": {
+      "interface": "Challenge",
+      "location": "src/data/challenges.ts:24-59",
+      "fields": {
+        "core": [
+          "id: string",
+          "category: ChallengeCategory",
+          "title: string",
+          "description: string",
+          "difficulty: 'beginner' | 'intermediate' | 'advanced'",
+          "aiFailureRate: number",
+          "commonMistakes: string[]",
+          "goodExample: { prompt, response }",
+          "badExample: { prompt, response, whyBad }",
+          "framework?: string",
+          "tags: string[]"
+        ],
+        "dndTarot": [
+          "archetype?: { name, symbol, element? }",
+          "hiddenEval?: { principle, reversedMeaning? }",
+          "narrativeArc?: NarrativeArc",
+          "connectsTo?: string[]",
+          "mentorVoice?: MentorVoice"
+        ]
+      }
+    },
+    "actionGuide": {
+      "interface": "TimeHorizonGuide",
+      "location": "src/data/action-guides.ts",
+      "fields": [
+        "id: TimeHorizon",
+        "slug: string",
+        "headline: string",
+        "subheadline: string",
+        "intro: string",
+        "actions: Action[]",
+        "mindset: string",
+        "cta: { primary, secondary }",
+        "next?: TimeHorizon",
+        "prev?: TimeHorizon"
+      ]
+    },
+    "caseStudy": {
+      "interface": "CaseStudy",
+      "location": "src/data/case-studies.ts",
+      "fields": [
+        "id, slug, title",
+        "problem: { headline, description, painPoints }",
+        "solution: { headline, description, approach }",
+        "result: { headline, metrics[] }",
+        "features: CaseStudyFeature[]",
+        "buildJourney: BuildWeek[]",
+        "techStack: TechStackItem[]",
+        "courseConnections: CourseConnection[]"
+      ]
+    },
+    "jaiStory": {
+      "interface": "Multiple types",
+      "location": "src/data/jai-story.ts",
+      "types": [
+        "TimelineEvent - Career milestones 2014-2024",
+        "Mentor - swyx, Rahul & Alex, Ash Maurya",
+        "RLEnvironmentNode - Learning system visualization",
+        "TransformationStage - Before/after states"
+      ]
+    }
+  },
+
+  "components": {
+    "count": 23,
+    "categories": {
+      "layout": ["Header.tsx", "Footer.tsx"],
+      "shared": ["shared/PageHeader.tsx", "shared/CTABlock.tsx", "shared/PathCard.tsx"],
+      "challenge": [
+        "ChallengeCard.tsx",
+        "ChallengeDirectory.tsx",
+        "ChallengeCarousel.tsx",
+        "CategoryFilter.tsx",
+        "FailureRateChart.tsx"
+      ],
+      "actionGuide": [
+        "action-guides/ActionCard.tsx",
+        "action-guides/TimeHorizonNav.tsx",
+        "action-guides/DifficultyBadge.tsx",
+        "action-guides/TimeEstimate.tsx"
+      ],
+      "story": [
+        "story/Timeline.tsx",
+        "story/MentorCards.tsx",
+        "story/RLDiagram.tsx",
+        "story/TransformationCard.tsx"
+      ],
+      "caseStudy": ["case-study/BuildJourney.tsx", "case-study/FeatureList.tsx"],
+      "utility": ["ParrotMascot.tsx", "HeroSection.tsx", "CTASection.tsx"]
+    },
+    "keyComponents": [
+      {
+        "name": "ChallengeCarousel",
+        "path": "src/components/ChallengeCarousel.tsx",
+        "purpose": "Netflix-style horizontal scroll of top challenges",
+        "features": ["scroll-snap", "arrow navigation", "gradient fades", "archetype symbols"]
+      },
+      {
+        "name": "ChallengeCard",
+        "path": "src/components/ChallengeCard.tsx",
+        "purpose": "Expandable card showing one AI failure pattern",
+        "features": ["good/bad examples", "share/bookmark", "difficulty badge"]
+      },
+      {
+        "name": "Header",
+        "path": "src/components/Header.tsx",
+        "purpose": "Site navigation with mobile menu",
+        "features": ["dropdown menus", "mobile hamburger", "external link indicators"]
+      }
+    ]
+  },
+
+  "patterns": {
+    "good": [
+      {
+        "pattern": "Server components by default",
+        "why": "Better performance, SEO, smaller bundles",
+        "example": "All page.tsx files are async server components"
+      },
+      {
+        "pattern": "Data-driven UI",
+        "why": "Single source of truth, type-safe rendering",
+        "example": "challenges.map() renders all challenge cards"
+      },
+      {
+        "pattern": "Type-safe data models",
+        "why": "Catch errors at compile time, IDE autocomplete",
+        "example": "Challenge interface with required/optional fields"
+      },
+      {
+        "pattern": "Expandable card UX",
+        "why": "Shows depth without overwhelming, first item expanded",
+        "example": "ChallengeCard, ActionCard both use this pattern"
+      },
+      {
+        "pattern": "CSS scroll-snap for carousels",
+        "why": "Native smooth scrolling, better mobile UX",
+        "example": "ChallengeCarousel uses scroll-snap-type: x mandatory"
+      },
+      {
+        "pattern": "generateStaticParams for SSG",
+        "why": "Pre-render all pages at build time",
+        "example": "do/[timeframe]/page.tsx exports generateStaticParams"
+      }
+    ],
+    "antiPatterns": [
+      {
+        "pattern": "Hard-coded pixel values",
+        "location": "ChallengeCarousel.tsx:42",
+        "issue": "cardWidth: 320 - breaks if Tailwind width changes",
+        "fix": "Use ref to measure actual card width"
+      },
+      {
+        "pattern": "Inline gradient colors",
+        "location": "ChallengeCarousel.tsx:111, 183",
+        "issue": "from-green-50 coupled to page background",
+        "fix": "Extract to CSS custom properties"
+      },
+      {
+        "pattern": "Silent error handling",
+        "location": "ChallengeCard.tsx:51",
+        "issue": "console.log on share failure, no user feedback",
+        "fix": "Add toast notification on failure"
+      }
+    ]
+  },
+
+  "commonErrors": [
+    {
+      "error": "Turbopack stale cache",
+      "symptoms": "Error shows for line that no longer exists, file appears 'stuck'",
+      "solution": "Make any change to force recompile, or restart dev server",
+      "preventionPattern": "Kill dev server before major refactors"
+    },
+    {
+      "error": "Apostrophe in single-quoted strings",
+      "symptoms": "Parsing error on lines with contractions like \"tomorrow's\"",
+      "solution": "Use double quotes or escape: \"tomorrow's\" or 'tomorrow\\'s'",
+      "preventionPattern": "Prefer double quotes for strings with apostrophes"
+    },
+    {
+      "error": "Missing 'use client' directive",
+      "symptoms": "useState/useEffect not working, hydration errors",
+      "solution": "Add 'use client' at top of file",
+      "preventionPattern": "Check if component needs interactivity before writing"
+    },
+    {
+      "error": "SSG with undefined params",
+      "symptoms": "Build fails on dynamic routes",
+      "solution": "Ensure generateStaticParams returns all valid slugs",
+      "preventionPattern": "Test build locally before deploy"
+    }
+  ],
+
+  "technicalDebt": [
+    {
+      "item": "Archetype data incomplete",
+      "location": "src/data/challenges.ts",
+      "description": "Only 3 of 12 challenges have full D&D/Tarot fields",
+      "priority": "medium",
+      "effort": "1 hour"
+    },
+    {
+      "item": "connectsTo field unused",
+      "location": "src/data/challenges.ts",
+      "description": "Challenge graph defined but not visualized",
+      "priority": "low",
+      "effort": "4 hours"
+    },
+    {
+      "item": "No loading/error states",
+      "location": "Multiple components",
+      "description": "Components assume data always loads successfully",
+      "priority": "low",
+      "effort": "2 hours"
+    },
+    {
+      "item": "Search box non-functional",
+      "location": "src/components/HeroSection.tsx",
+      "description": "Search input only scrolls to challenges, doesn't filter",
+      "priority": "medium",
+      "effort": "3 hours"
+    }
+  ],
+
+  "dndTarotSystem": {
+    "purpose": "Hidden evaluation system through storytelling - secretly tests PM principles while appearing as gamified learning",
+    "thesis": "Each challenge card is a Tarot card testing one of 8 principles. Players learn PM skills through archetypal patterns, not lectures.",
+    "evalPrinciples": [
+      { "id": "eval", "question": "Can AI measure before claiming success?", "mentor": "swyx" },
+      {
+        "id": "constraint",
+        "question": "Can AI design with limitation as feature?",
+        "mentor": "ash-maurya"
+      },
+      { "id": "iteration", "question": "Can AI fail forward, not fall backward?" },
+      { "id": "specificity", "question": "Can AI avoid generic answers?", "mentor": "swyx" },
+      { "id": "tradeoff", "question": "Can AI make explicit choices?", "mentor": "rahul-alex" },
+      { "id": "humility", "question": "Can AI admit uncertainty?" },
+      { "id": "system", "question": "Can AI think in loops, not lines?" },
+      { "id": "embodiment", "question": "Can AI move from knowing to doing?" }
+    ],
+    "archetypes": [
+      {
+        "name": "The Hermit",
+        "symbol": "crystal-ball",
+        "tarotNumber": 9,
+        "element": "earth",
+        "principle": "specificity"
+      },
+      {
+        "name": "The Evaluator",
+        "symbol": "scales",
+        "tarotNumber": 11,
+        "element": "air",
+        "principle": "eval"
+      },
+      {
+        "name": "The Builder",
+        "symbol": "hammer",
+        "tarotNumber": 1,
+        "element": "fire",
+        "principle": "constraint"
+      },
+      {
+        "name": "The Fool",
+        "symbol": "clover",
+        "tarotNumber": 0,
+        "element": "air",
+        "principle": "iteration"
+      },
+      {
+        "name": "The Tower",
+        "symbol": "tower",
+        "tarotNumber": 16,
+        "element": "fire",
+        "principle": "humility"
+      },
+      {
+        "name": "Temperance",
+        "symbol": "balance",
+        "tarotNumber": 14,
+        "element": "water",
+        "principle": "tradeoff"
+      },
+      {
+        "name": "The Moon",
+        "symbol": "moon",
+        "tarotNumber": 18,
+        "element": "water",
+        "principle": "humility"
+      },
+      {
+        "name": "The Wheel",
+        "symbol": "wheel",
+        "tarotNumber": 10,
+        "element": "spirit",
+        "principle": "system"
+      }
+    ],
+    "elements": [
+      { "id": "fire", "meaning": "Action, creation, transformation" },
+      { "id": "water", "meaning": "Emotion, intuition, flow" },
+      { "id": "earth", "meaning": "Stability, practicality, grounding" },
+      { "id": "air", "meaning": "Thought, communication, clarity" },
+      { "id": "spirit", "meaning": "Connection, synthesis, transcendence" }
+    ],
+    "narrativeArcs": [
+      {
+        "id": "exposition",
+        "position": 1,
+        "description": "Setting the scene, introducing the problem"
+      },
+      {
+        "id": "rising-action",
+        "position": 2,
+        "description": "Building tension, encountering obstacles"
+      },
+      { "id": "climax", "position": 3, "description": "Peak conflict, critical decision point" },
+      {
+        "id": "falling-action",
+        "position": 4,
+        "description": "Consequences unfold, resolution begins"
+      },
+      { "id": "resolution", "position": 5, "description": "New equilibrium, lessons integrated" }
+    ],
+    "mentorVoices": [
+      { "id": "swyx", "name": "swyx", "expertise": "Evals, measurement, learning in public" },
+      {
+        "id": "rahul-alex",
+        "name": "Rahul & Alex",
+        "expertise": "Observability, tradeoffs, system thinking"
+      },
+      {
+        "id": "ash-maurya",
+        "name": "Ash Maurya",
+        "expertise": "Lean, constraints, business model design"
+      }
+    ],
+    "implementationStatus": {
+      "schemaComplete": true,
+      "dataPopulated": {
+        "total": 12,
+        "withArchetype": 3,
+        "challengesWithData": ["ur-001", "pd-001", "sm-001"]
+      },
+      "uiBuilt": {
+        "carouselShowsSymbols": true,
+        "fullCardUI": false,
+        "graphVisualization": false,
+        "mentorRouting": false
+      },
+      "nextSteps": [
+        "Populate remaining 9 challenges with archetype data",
+        "Design full Tarot card UI (upright/reversed states)",
+        "Build challenge graph using connectsTo relationships",
+        "Implement mentor voice paths (learning journeys)"
+      ]
+    }
+  }
+}
