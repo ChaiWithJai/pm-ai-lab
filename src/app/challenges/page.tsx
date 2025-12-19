@@ -32,26 +32,27 @@ export default function ChallengesPage() {
         />
       </div>
 
-      {/* Featured Carousel */}
-      <section className="py-8">
-        <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
-          <ChallengeCarousel
-            challenges={featuredChallenges}
-            title="Highest Failure Rates"
-            showViewAll={true}
-          />
-        </div>
-      </section>
-
-      {/* Challenge Directory */}
+      {/* Challenge Directory - VALIDATION (quick-scan proof) */}
       <div id="all-challenges">
         <ChallengeDirectory />
       </div>
 
-      {/* Data Section */}
+      {/* Data Section - PROOF (credibility for skeptics) */}
       <div id="data">
         <FailureRateChart />
       </div>
+
+      {/* Tarot Carousel - REWARD (educational deep-dive) */}
+      <section className="py-8">
+        <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
+          <ChallengeCarousel
+            challenges={featuredChallenges}
+            title="The Hidden Principles"
+            showViewAll={true}
+            viewMode="tarot"
+          />
+        </div>
+      </section>
 
       {/* CTA */}
       <CTASection />
