@@ -285,6 +285,20 @@ export const challenges: Challenge[] = [
     tags: ['interview', 'bias', 'research-quality'],
     shareCount: 623,
     bookmarkCount: 891,
+    // D&D/Tarot fields
+    archetype: {
+      name: 'The High Priestess',
+      symbol: '🌙',
+      element: 'water',
+    },
+    hiddenEval: {
+      principle: 'humility',
+      reversedMeaning:
+        'Forcing your assumptions onto users through subtle manipulation of questions',
+    },
+    narrativeArc: 'exposition',
+    connectsTo: ['ur-001', 'cd-002'],
+    mentorVoice: 'swyx',
   },
   {
     id: 'cd-001',
@@ -315,6 +329,20 @@ export const challenges: Challenge[] = [
     tags: ['discovery', 'problem-validation', 'jtbd'],
     shareCount: 1024,
     bookmarkCount: 1456,
+    // D&D/Tarot fields
+    archetype: {
+      name: 'The Fool',
+      symbol: '🌟',
+      element: 'air',
+    },
+    hiddenEval: {
+      principle: 'system',
+      reversedMeaning:
+        'Rushing toward answers without understanding the problem system—naive optimism masking lack of depth',
+    },
+    narrativeArc: 'rising-action',
+    connectsTo: ['ur-001', 'cd-002', 'mvp-001'],
+    mentorVoice: 'ash-maurya',
   },
   {
     id: 'cd-002',
@@ -345,6 +373,20 @@ export const challenges: Challenge[] = [
     tags: ['validation', 'surveys', 'testing'],
     shareCount: 789,
     bookmarkCount: 1102,
+    // D&D/Tarot fields
+    archetype: {
+      name: 'The Moon',
+      symbol: '🌑',
+      element: 'water',
+    },
+    hiddenEval: {
+      principle: 'eval',
+      reversedMeaning:
+        'Living in a dream of validated ideas while reality remains unmeasured and unknown',
+    },
+    narrativeArc: 'rising-action',
+    connectsTo: ['cd-001', 'ma-001'],
+    mentorVoice: 'ash-maurya',
   },
   {
     id: 'pd-001',
@@ -462,6 +504,19 @@ export const challenges: Challenge[] = [
     tags: ['metrics', 'analytics', 'focus'],
     shareCount: 1678,
     bookmarkCount: 2341,
+    // D&D/Tarot fields
+    archetype: {
+      name: 'The Wheel',
+      symbol: '🎡',
+      element: 'spirit',
+    },
+    hiddenEval: {
+      principle: 'eval',
+      reversedMeaning: 'Spinning in circles of meaningless numbers, mistaking motion for progress',
+    },
+    narrativeArc: 'climax',
+    connectsTo: ['cd-002', 'sm-001'],
+    mentorVoice: 'rahul-alex',
   },
   {
     id: 'dp-001',
@@ -491,6 +546,20 @@ export const challenges: Challenge[] = [
     tags: ['design', 'prototyping', 'validation'],
     shareCount: 723,
     bookmarkCount: 1089,
+    // D&D/Tarot fields
+    archetype: {
+      name: 'The Tower',
+      symbol: '🗼',
+      element: 'fire',
+    },
+    hiddenEval: {
+      principle: 'iteration',
+      reversedMeaning:
+        'Building beautiful towers on sand—perfecting the wrong thing before testing the foundation',
+    },
+    narrativeArc: 'falling-action',
+    connectsTo: ['pd-001', 'mvp-001'],
+    mentorVoice: 'swyx',
   },
   {
     id: 'rp-001',
@@ -521,6 +590,20 @@ export const challenges: Challenge[] = [
     tags: ['roadmap', 'planning', 'communication'],
     shareCount: 1234,
     bookmarkCount: 1876,
+    // D&D/Tarot fields
+    archetype: {
+      name: 'The Hanged Man',
+      symbol: '⏳',
+      element: 'water',
+    },
+    hiddenEval: {
+      principle: 'constraint',
+      reversedMeaning:
+        'Suspended in false certainty—making promises about a future you cannot predict',
+    },
+    narrativeArc: 'falling-action',
+    connectsTo: ['sm-001', 'pd-001'],
+    mentorVoice: 'rahul-alex',
   },
   {
     id: 'mvp-001',
@@ -550,6 +633,20 @@ export const challenges: Challenge[] = [
     tags: ['mvp', 'validation', 'lean'],
     shareCount: 1567,
     bookmarkCount: 2198,
+    // D&D/Tarot fields
+    archetype: {
+      name: 'Death',
+      symbol: '🦋',
+      element: 'earth',
+    },
+    hiddenEval: {
+      principle: 'constraint',
+      reversedMeaning:
+        'Refusing to let go of scope, fearing the transformation that comes from true minimalism',
+    },
+    narrativeArc: 'resolution',
+    connectsTo: ['pd-001', 'cd-001'],
+    mentorVoice: 'ash-maurya',
   },
   {
     id: 'ca-001',
@@ -579,6 +676,20 @@ export const challenges: Challenge[] = [
     tags: ['competition', 'positioning', 'strategy'],
     shareCount: 845,
     bookmarkCount: 1234,
+    // D&D/Tarot fields
+    archetype: {
+      name: 'The Star',
+      symbol: '⭐',
+      element: 'air',
+    },
+    hiddenEval: {
+      principle: 'specificity',
+      reversedMeaning:
+        'Wishing upon generic comparisons instead of understanding the specific job customers hire for',
+    },
+    narrativeArc: 'resolution',
+    connectsTo: ['ps-001', 'sm-001'],
+    mentorVoice: 'ash-maurya',
   },
   {
     id: 'ps-001',
@@ -609,10 +720,24 @@ export const challenges: Challenge[] = [
     tags: ['pricing', 'value', 'positioning'],
     shareCount: 678,
     bookmarkCount: 987,
+    // D&D/Tarot fields
+    archetype: {
+      name: 'The Emperor',
+      symbol: '👑',
+      element: 'fire',
+    },
+    hiddenEval: {
+      principle: 'tradeoff',
+      reversedMeaning:
+        'Ruling by formula instead of value—letting costs dictate worth instead of customer outcomes',
+    },
+    narrativeArc: 'resolution',
+    connectsTo: ['ca-001', 'sm-001'],
+    mentorVoice: 'rahul-alex',
   },
 ];
 
-// Archetype metadata for future D&D/Tarot card rendering
+// Archetype metadata for D&D/Tarot card rendering
 export const archetypeMeta: Record<
   string,
   {
@@ -630,19 +755,12 @@ export const archetypeMeta: Record<
     meaningUpright: 'Deep introspection, seeking specific truth over comfortable generalities',
     meaningReversed: 'Surface-level thinking, accepting "typical" when specifics are needed',
   },
-  'the-evaluator': {
-    tarotNumber: 11, // Justice
+  'the-high-priestess': {
+    tarotNumber: 2,
     color: 'blue',
-    gradient: 'from-blue-600 to-cyan-600',
-    meaningUpright: 'Measuring truth, finding clarity through systematic evaluation',
-    meaningReversed: 'False confidence, unmeasured assumptions, confirmation bias',
-  },
-  'the-builder': {
-    tarotNumber: 1, // The Magician
-    color: 'teal',
-    gradient: 'from-teal-500 to-emerald-500',
-    meaningUpright: 'Manifesting ideas into reality through skill and iteration',
-    meaningReversed: 'Building without purpose, over-engineering, technical debt',
+    gradient: 'from-blue-600 to-indigo-600',
+    meaningUpright: 'Intuitive wisdom, listening without leading',
+    meaningReversed: 'Forcing assumptions onto others through subtle manipulation',
   },
   'the-fool': {
     tarotNumber: 0,
@@ -651,12 +769,19 @@ export const archetypeMeta: Record<
     meaningUpright: 'Beginner mindset, willingness to start simple and learn',
     meaningReversed: 'Naive complexity, solving problems that do not exist',
   },
-  'the-tower': {
-    tarotNumber: 16,
-    color: 'red',
-    gradient: 'from-red-600 to-rose-600',
-    meaningUpright: 'Necessary destruction of false beliefs, learning from failure',
-    meaningReversed: 'Avoiding hard truths, building on unstable foundations',
+  'the-moon': {
+    tarotNumber: 18,
+    color: 'indigo',
+    gradient: 'from-indigo-600 to-violet-600',
+    meaningUpright: 'Navigating uncertainty, admitting what you do not know',
+    meaningReversed: 'Living in dreams, avoiding measurement of reality',
+  },
+  'the-builder': {
+    tarotNumber: 1, // The Magician
+    color: 'teal',
+    gradient: 'from-teal-500 to-emerald-500',
+    meaningUpright: 'Manifesting ideas into reality through skill and iteration',
+    meaningReversed: 'Building without purpose, over-engineering, technical debt',
   },
   temperance: {
     tarotNumber: 14,
@@ -665,19 +790,47 @@ export const archetypeMeta: Record<
     meaningUpright: 'Balancing tradeoffs, making explicit choices',
     meaningReversed: 'Trying to please everyone, avoiding hard decisions',
   },
-  'the-moon': {
-    tarotNumber: 18,
-    color: 'indigo',
-    gradient: 'from-indigo-600 to-violet-600',
-    meaningUpright: 'Navigating uncertainty, admitting what you do not know',
-    meaningReversed: 'False certainty, pretending to know more than you do',
-  },
   'the-wheel': {
     tarotNumber: 10, // Wheel of Fortune
     color: 'cyan',
     gradient: 'from-cyan-500 to-teal-500',
     meaningUpright: 'Understanding feedback loops, thinking in systems',
-    meaningReversed: 'Linear thinking, missing second-order effects',
+    meaningReversed: 'Spinning in circles of meaningless metrics',
+  },
+  'the-tower': {
+    tarotNumber: 16,
+    color: 'red',
+    gradient: 'from-red-600 to-rose-600',
+    meaningUpright: 'Necessary destruction of false beliefs, learning from failure',
+    meaningReversed: 'Perfecting the wrong thing before testing the foundation',
+  },
+  'the-hanged-man': {
+    tarotNumber: 12,
+    color: 'blue',
+    gradient: 'from-blue-500 to-cyan-500',
+    meaningUpright: 'Patience, seeing from new perspectives, accepting constraints',
+    meaningReversed: 'Suspended in false certainty, making unpredictable promises',
+  },
+  death: {
+    tarotNumber: 13,
+    color: 'green',
+    gradient: 'from-green-600 to-emerald-600',
+    meaningUpright: 'Transformation, letting go of what no longer serves',
+    meaningReversed: 'Refusing to let go of scope, fearing minimalism',
+  },
+  'the-star': {
+    tarotNumber: 17,
+    color: 'yellow',
+    gradient: 'from-yellow-400 to-amber-500',
+    meaningUpright: 'Hope, inspiration, finding your unique position',
+    meaningReversed: 'Wishing upon generic comparisons instead of specific jobs',
+  },
+  'the-emperor': {
+    tarotNumber: 4,
+    color: 'red',
+    gradient: 'from-red-500 to-orange-500',
+    meaningUpright: 'Structure, authority, commanding value',
+    meaningReversed: 'Ruling by formula instead of value—cost-plus thinking',
   },
 };
 

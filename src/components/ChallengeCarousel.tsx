@@ -4,17 +4,20 @@ import { useRef, useState, useEffect } from 'react';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
 import { Challenge, categoryMeta } from '@/data/challenges';
 import Link from 'next/link';
+import { TarotCard } from '@/components/tarot';
 
 interface ChallengeCarouselProps {
   challenges: Challenge[];
   title?: string;
   showViewAll?: boolean;
+  viewMode?: 'standard' | 'tarot';
 }
 
 export default function ChallengeCarousel({
   challenges,
   title = 'Featured Challenges',
   showViewAll = true,
+  viewMode = 'standard',
 }: ChallengeCarouselProps) {
   const scrollRef = useRef<HTMLDivElement>(null);
   const [canScrollLeft, setCanScrollLeft] = useState(false);
@@ -127,6 +130,20 @@ export default function ChallengeCarousel({
           }}
         >
           {challenges.map((challenge) => {
+            // Tarot card mode
+            if (viewMode === 'tarot') {
+              return (
+                <div
+                  key={challenge.id}
+                  className="flex-shrink-0"
+                  style={{ scrollSnapAlign: 'start' }}
+                >
+                  <TarotCard challenge={challenge} size="sm" interactive />
+                </div>
+              );
+            }
+
+            // Standard card mode
             const category = categoryMeta[challenge.category];
             return (
               <div
