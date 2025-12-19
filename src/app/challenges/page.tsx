@@ -39,6 +39,7 @@ export default function ChallengesPage() {
             challenges={featuredChallenges}
             title="Highest Failure Rates"
             showViewAll={true}
+            viewMode="tarot"
           />
         </div>
       </section>
